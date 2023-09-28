@@ -4,8 +4,8 @@ var numericCharArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowercaseCharArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var uppercaseCharArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-// This is the user's password array (initialized to an empty array)
-var passwordArray = [];
+// This is the user's password (initialized to an empty string)
+var passwordString = "";
 
 // This is an array of possible characters we can select from based on the user-selected criteria (initialized to an empty array)
 var possibleCharactersArray = [];
@@ -14,7 +14,7 @@ var possibleCharactersArray = [];
 var generateBtn = document.querySelector("#generate");
 
 // Generates an array of possible characters to pick our password from based on user-selected criteria
-// Then randomly selects correct amount of characters from possibleCharactersArray and adds to passwordArray
+// Then randomly selects correct amount of characters from possibleCharactersArray and adds to passwordString
 function generatePassword() {
 
   // Prompt user "How many characters would you like your password to contain?"
@@ -87,17 +87,18 @@ function generatePassword() {
       alert("You must select special, numeric, lowercase or uppercase characters");
       generatePassword();
       
-      // Else, randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
+      // Else, randomly select correct amount of characters from possibleCharactersArray and add to passwordString
     } else {
 
       // Randomly shuffle possibleCharacters array. Source: https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
       const possibleCharactersArrayShuffled = possibleCharactersArray.sort((a, b) => 0.5 - Math.random());
 
       for (let i = 0; i < passwordLength; i++) {
-        passwordArray.push(possibleCharactersArrayShuffled[i]);
+        passwordString = passwordString + possibleCharactersArrayShuffled[i];
       }
-      console.log("Password Array:");
-      console.log(passwordArray);
+      console.log("PassStr:");
+      console.log(passwordString);
+      return passwordString;
     }
 
   }
