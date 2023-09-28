@@ -28,15 +28,54 @@ function generatePassword() {
   } else {
 
     // Confirm whether to use special characters.
-    var specialChar = confirm("Click OK to confirm including special characters");
+    var isSpecialChar = confirm("Click OK to confirm including special characters");
 
-    // If specialChar == true, add all special characters to possibleCharactersArray
-    if (specialChar) {
+    // If isSpecialChar == true, add all special characters to possibleCharactersArray
+    if (isSpecialChar) {
       possibleCharactersArray = possibleCharactersArray.concat(specialCharArray);
       console.log("Selected OK to special characters");
       console.log(possibleCharactersArray);
     } else {
       console.log("Selected Cancel to special characters");
+    }
+    
+    
+    // Confirm whether to use numeric characters.
+    var isNumericChar = confirm("Click OK to confirm including numeric characters");
+
+    // If isNumericChar == true, add all numeric characters to possibleCharactersArray
+    if (isNumericChar) {
+      possibleCharactersArray = possibleCharactersArray.concat(numericCharArray);
+      console.log("Selected OK to numeric characters");
+      console.log(possibleCharactersArray);
+    } else {
+      console.log("Selected Cancel to numeric characters");
+    }
+    
+    
+    // Confirm whether to use lowercase characters.
+    var isLowercaseChar = confirm("Click OK to confirm including lowercase characters");
+
+    // If isLowercaseChar == true, add all lowercase characters to possibleCharactersArray
+    if (isLowercaseChar) {
+      possibleCharactersArray = possibleCharactersArray.concat(lowercaseCharArray);
+      console.log("Selected OK to lowercase characters");
+      console.log(possibleCharactersArray);
+    } else {
+      console.log("Selected Cancel to lowercase characters");
+    }
+    
+    
+    // Confirm whether to use uppercase characters.
+    var isUppercaseChar = confirm("Click OK to confirm including uppercase characters");
+
+    // If isUppercaseChar == true, add all uppercase characters to possibleCharactersArray
+    if (isUppercaseChar) {
+      possibleCharactersArray = possibleCharactersArray.concat(uppercaseCharArray);
+      console.log("Selected OK to uppercase characters");
+      console.log(possibleCharactersArray);
+    } else {
+      console.log("Selected Cancel to uppercase characters");
     }
 
 
