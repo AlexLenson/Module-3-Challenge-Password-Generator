@@ -15,9 +15,31 @@ var generateBtn = document.querySelector("#generate");
 
 // Generates password based on user-selected criteria
 function generatePassword() {
+
   // Prompt user "How many characters would you like your password to contain?"
-  // Check if password length is at least 8 characters and no greater than 128 characters. If not, alert user "Password length must be at least 8 and no greater than 128 characters" and program ends (or cycle them back into asking for password length, generatePassword())
-  // Else, confirm whether to use special characters. confirm("Click OK to confirm including special characters"). Add all upper case characters to possibleCharactersArray
+  let passwordLength = prompt("How many characters would you like your password to contain?");
+  console.log(`Password length: ${passwordLength}`);
+
+  // Check if password length is at least 8 characters and no greater than 128 characters.
+  if (passwordLength < 8 || passwordLength > 128) {
+    // If not, alert user "Password length must be at least 8 and no greater than 128 characters" and program ends
+    alert("Password length must be at least 8 and no greater than 128 characters");
+    
+  } else {
+
+    // Confirm whether to use special characters.
+    var specialChar = confirm("Click OK to confirm including special characters");
+
+    // If confirm == true, add all special characters to possibleCharactersArray
+    if (specialChar) {
+      console.log("Selected OK to special characters");
+    } else {
+      console.log("Selected Cancel to special characters");
+    }
+
+
+  }
+  
   // Else, confirm("Click OK to confirm including numeric characters"). Add all numeric characters to possibleCharactersArray
   // Else, confirm("Click OK to confirm including lowercase characters"). Add all lowercase characters to possibleCharactersArray
   // Else, confirm("Click OK to confirm including uppercase characters"). Add all uppercase characters to possibleCharactersArray
