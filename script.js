@@ -30,9 +30,11 @@ function generatePassword() {
     // Confirm whether to use special characters.
     var specialChar = confirm("Click OK to confirm including special characters");
 
-    // If confirm == true, add all special characters to possibleCharactersArray
+    // If specialChar == true, add all special characters to possibleCharactersArray
     if (specialChar) {
+      possibleCharactersArray = possibleCharactersArray.concat(specialCharArray);
       console.log("Selected OK to special characters");
+      console.log(possibleCharactersArray);
     } else {
       console.log("Selected Cancel to special characters");
     }
