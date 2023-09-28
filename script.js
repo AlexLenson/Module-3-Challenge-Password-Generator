@@ -13,8 +13,8 @@ var possibleCharactersArray = [];
 // Selects the "Generate Password" button
 var generateBtn = document.querySelector("#generate");
 
-// Generates password based on user-selected criteria
-function generatePassword() {
+// Generates an array of possible characters to pick our password from based on user-selected criteria
+function generatePossibleCharacters() {
 
   // Prompt user "How many characters would you like your password to contain?"
   let passwordLength = prompt("How many characters would you like your password to contain?");
@@ -22,9 +22,11 @@ function generatePassword() {
 
   // Check if password length is at least 8 characters and no greater than 128 characters.
   if (passwordLength < 8 || passwordLength > 128) {
-    // If not, alert user "Password length must be at least 8 and no greater than 128 characters" and program ends
+    
+    // If password length is not acceptable, alert user and program ends
     alert("Password length must be at least 8 and no greater than 128 characters");
     
+    // If password length is acceptable, ask user to select special, numeric, lowercase and uppercase characters
   } else {
 
     // Confirm whether to use special characters.
@@ -79,21 +81,34 @@ function generatePassword() {
     }
 
 
+    // Check if possibleCharactersArray is empty. If so, prompt user they must select special, numeric, lowercase or uppercase characters and call generatePossibleCharacters()
+    if (possibleCharactersArray.length === 0) {
+      alert("You must select special, numeric, lowercase or uppercase characters");
+      generatePossibleCharacters();
+      
+      // Else, return possibleCharactersArray
+    } else {
+      console.log("Returning possibleCharactersArray");
+      return possibleCharactersArray;
+    }
+
   }
-  
-  // Else, confirm("Click OK to confirm including numeric characters"). Add all numeric characters to possibleCharactersArray
-  // Else, confirm("Click OK to confirm including lowercase characters"). Add all lowercase characters to possibleCharactersArray
-  // Else, confirm("Click OK to confirm including uppercase characters"). Add all uppercase characters to possibleCharactersArray
-  // At least one character type should be selected
-  // After all prompts are answered, password is generated
-  // Randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
-  // Password should be correct length and contain at least one of each type of character selected by the user. If not, randomly select a new password from possibleCharactersArray
-  // return passwordArray
+
 }
 
 
+// After all prompts are answered, password is generated
+// Randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
+// Password should be correct length and contain at least one of each type of character selected by the user. If not, randomly select a new password from possibleCharactersArray
+// return passwordArray
 
 
+
+
+function generatePassword() {
+
+
+}
 
 
 
