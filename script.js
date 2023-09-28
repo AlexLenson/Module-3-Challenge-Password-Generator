@@ -14,10 +14,11 @@ var possibleCharactersArray = [];
 var generateBtn = document.querySelector("#generate");
 
 // Generates an array of possible characters to pick our password from based on user-selected criteria
-function generatePossibleCharacters() {
+// Then randomly selects correct amount of characters from possibleCharactersArray and adds to passwordArray
+function generatePassword() {
 
   // Prompt user "How many characters would you like your password to contain?"
-  let passwordLength = prompt("How many characters would you like your password to contain?");
+  var passwordLength = prompt("How many characters would you like your password to contain?");
   console.log(`Password length: ${passwordLength}`);
 
   // Check if password length is at least 8 characters and no greater than 128 characters.
@@ -84,12 +85,19 @@ function generatePossibleCharacters() {
     // Check if possibleCharactersArray is empty. If so, prompt user they must select special, numeric, lowercase or uppercase characters and call generatePossibleCharacters()
     if (possibleCharactersArray.length === 0) {
       alert("You must select special, numeric, lowercase or uppercase characters");
-      generatePossibleCharacters();
+      generatePassword();
       
-      // Else, return possibleCharactersArray
+      // Else, randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
     } else {
-      console.log("Returning possibleCharactersArray");
-      return possibleCharactersArray;
+
+      // Randomly shuffle possibleCharacters array. Source: https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
+      const possibleCharactersArrayShuffled = possibleCharactersArray.sort((a, b) => 0.5 - Math.random());
+
+      for (let i = 0; i < passwordLength; i++) {
+        passwordArray.push(possibleCharactersArrayShuffled[i]);
+      }
+      console.log("Password Array:");
+      console.log(passwordArray);
     }
 
   }
@@ -98,18 +106,28 @@ function generatePossibleCharacters() {
 
 
 // After all prompts are answered, password is generated
-// Randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
+
 // Password should be correct length and contain at least one of each type of character selected by the user. If not, randomly select a new password from possibleCharactersArray
 // return passwordArray
 
 
-
-
+/**
+ * might not need this function
+ * 
+ * 
+// Randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
 function generatePassword() {
+  
+  // Call to get an array of possible characters 
+  generatePossibleCharacters();
+
+  console.log(`Password length: ${passwordLength}`);
+  console.log("hi");
 
 
 }
 
+ */
 
 
 
