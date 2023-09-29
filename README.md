@@ -14,5 +14,5 @@ The purpose of this project is to create a password generator application using 
 
 
 ## Deployment
-See it live at: https://alexlenson.github.io/Module-2-Challenge-Portfolio/
+See it live at: https://alexlenson.github.io/Module-3-Challenge-Password-Generator/
 
