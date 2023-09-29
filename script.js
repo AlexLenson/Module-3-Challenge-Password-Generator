@@ -105,7 +105,6 @@ function generatePassword() {
 
 }
 
-
 // Write password to the #password input
 function writePassword() {
 
