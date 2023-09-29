@@ -106,33 +106,6 @@ function generatePassword() {
 }
 
 
-// After all prompts are answered, password is generated
-
-// Password should be correct length and contain at least one of each type of character selected by the user. If not, randomly select a new password from possibleCharactersArray
-// return passwordArray
-
-
-/**
- * might not need this function
- * 
- * 
-// Randomly select correct amount of characters from possibleCharactersArray and add to passwordArray
-function generatePassword() {
-  
-  // Call to get an array of possible characters 
-  generatePossibleCharacters();
-
-  console.log(`Password length: ${passwordLength}`);
-  console.log("hi");
-
-
-}
-
- */
-
-
-
-
 // Write password to the #password input
 function writePassword() {
 
